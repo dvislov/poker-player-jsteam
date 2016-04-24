@@ -39,7 +39,7 @@ function getDecision(rank, bet, state, cards, value) {
 
   if (rank > 1) {
     raise(bet, state, 200);
-  } else if (rank > 0 && state.current_buy_in < 300 && !isFreePair(state.community_cards, value)) {
+  } else if (rank > 0 && (value == '13' || value == '14' || state.current_buy_in < 300) && !isFreePair(state.community_cards, value)) {
     raise(bet, state, 100);
     console.log("raise");
   } else {

@@ -14,7 +14,7 @@ var state = {
     "small_blind": 10,                              // The small blind in the current round. The big blind is twice the
                                                     //     small blind
 
-    "current_buy_in": 10,                          // The amount of the largest current bet from any one player
+    "current_buy_in":400,                          // The amount of the largest current bet from any one player
 
     "pot": 400,                                     // The size of the pot (sum of the player bets)
 
@@ -47,7 +47,7 @@ var state = {
             "stack": 1010,                          // Amount of chips still available for the player. (Not including
                                                     //     the chips the player bet in this round.)
 
-            "bet": 10                              // The amount of chips the player put into the pot
+            "bet": 400                              // The amount of chips the player put into the pot
         },
         {
             "id": 1,                                // Your own player looks similar, with one extension.
@@ -63,7 +63,7 @@ var state = {
                     "suit": "hearts"                // Suit of the card. Possible values are: clubs,spades,hearts,diamonds
                 },
                 {
-                    "rank": "4",
+                    "rank": "5",
                     "suit": "spades"
                 }
             ]
@@ -87,7 +87,7 @@ var state = {
                 "suit": "hearts"
             },
             {
-                "rank": "A",
+                "rank": "5",
                 "suit": "clubs"
             }
     ]

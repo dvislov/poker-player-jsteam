@@ -30,13 +30,20 @@
 
 
   function getDecision(rank, bet, state, cards) {
+    console.log(rank, cards);
+
     if(cards.length == 2) {
       call(bet, state);
+      console.log("call");
     } else if (rank > 0) {
       raise(bet, state);
+      console.log("raise");
     } else {
       fold(bet, state);
+      console.log("fold");
     }
+    console.log("end");
+
   }
 
   module.exports = {

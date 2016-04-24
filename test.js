@@ -59,11 +59,11 @@ var state = {
             "hole_cards": [                         // The cards of the player. This is only visible for your own player
                                                     //     except after showdown, when cards revealed are also included.
                 {
-                    "rank": "A",                    // Rank of the card. Possible values are numbers 2-10 and J,Q,K,A
+                    "rank": "2",                    // Rank of the card. Possible values are numbers 2-10 and J,Q,K,A
                     "suit": "hearts"                // Suit of the card. Possible values are: clubs,spades,hearts,diamonds
                 },
                 {
-                    "rank": "7",
+                    "rank": "4",
                     "suit": "spades"
                 }
             ]
@@ -78,18 +78,18 @@ var state = {
         }
     ],
     "community_cards": [                            // Finally the array of community cards.
-      // {
-      //           "rank": "4",
-      //           "suit": "spades"
-      //       },
-      //       {
-      //           "rank": "5",
-      //           "suit": "hearts"
-      //       },
-      //       {
-      //           "rank": "6",
-      //           "suit": "clubs"
-      //       }
+      {
+                "rank": "4",
+                "suit": "spades"
+            },
+            {
+                "rank": "6",
+                "suit": "hearts"
+            },
+            {
+                "rank": "A",
+                "suit": "clubs"
+            }
     ]
 };
 

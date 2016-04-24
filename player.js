@@ -29,13 +29,17 @@ function get_rank(cards, callback) {
   });
 }
 
+function isFreePair(community_cards, rank) {
+  return _.filter(community_cards, function(e){return e.rank == rank;}).length == 2;
+}
 
-function getDecision(rank, bet, state, cards) {
+
+function getDecision(rank, bet, state, cards, value) {
   console.log(rank, cards);
 
-  if (rank >= 3) {
+  if (rank > 1) {
     raise(bet, state, 200);
-  } else if (rank > 0) {
+  } else if (rank > 0 && state.current_buy_in < 300 && !isFreePair(state.community_cards, value)) {
     raise(bet, state, 100);
     console.log("raise");
   } else {
@@ -80,7 +84,7 @@ module.exports = {
       } else {
         get_rank(cards, function (state) {
           var res = JSON.parse(state);
-          getDecision(res.rank, bet, game_state, cards);
+          getDecision(res.rank, bet, game_state, cards, res.value);
         });
       }
     } catch (e) {

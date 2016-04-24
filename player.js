@@ -55,8 +55,11 @@
       try {
         var cards = get_cards(game_state);
         get_rank(cards, function(state) {
+
           console.log(state);
-          getDecision(state.rank, bet, game_state, cards);
+
+          var res = JSON.parse(state);
+          getDecision(res.rank, bet, game_state, cards);
         });
       }
       catch(e){

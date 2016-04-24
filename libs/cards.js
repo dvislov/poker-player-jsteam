@@ -2,7 +2,7 @@ var _ = require('lodash');
 
 module.exports = {
 
-  getCards(state) {
+  getCards: function(state) {
     let tableCards = state.community_cards;
 
     let ourCards = [];

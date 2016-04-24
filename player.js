@@ -1,4 +1,4 @@
-try {
+
   const request = require('request');
   const qs = require('querystring');
   const get_cards = require('./libs/cards');
@@ -41,7 +41,7 @@ try {
 
     VERSION: 'Default JavaScript folding player',
 
-    bet_request: function(game_state, bet) {      
+    bet_request: function(game_state, bet) {
       var cards = get_cards(game_state);
       get_rank(cards, function(state) {
         getDecision(state.rank, bet, game_state);
@@ -52,8 +52,3 @@ try {
 
     }
   };
-
-}
-catch(e){
-  console.log(e);
-}

@@ -56,7 +56,7 @@ function isKicker(cards) {
   );
 }
 
-var raisLimit = 300;
+var raisLimit = 50;
 
 module.exports = {
 

@@ -1,3 +1,4 @@
+var getCards = require('./lib/cards');
 
 const request = require('request');
 const qs = require('querystring');

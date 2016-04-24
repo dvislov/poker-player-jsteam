@@ -1,4 +1,7 @@
 
+const request = require('request');
+const qs = require('querystring');
+
 module.exports = {
 
   VERSION: "Default JavaScript folding player",
@@ -9,7 +12,16 @@ module.exports = {
     bet(max_bet);
   },
 
+  get_rank: function(cards, callback) {
+    const encoded = qs.escape(JSON.stringify(cards));
 
+    request("http://rainman.leanpoker.org/rank?cards=" + encoded, function(error, response, body) {
+      if(error) {
+        console.log(error);
+      }
+      callback(body);
+    });
+  },
 
   showdown: function(game_state) {
 

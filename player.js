@@ -42,13 +42,19 @@
     VERSION: 'Default JavaScript folding player',
 
     bet_request: function(game_state, bet) {
-      var cards = get_cards(game_state);
-      get_rank(cards, function(state) {
-        getDecision(state.rank, bet, game_state);
-      });
+      try {
+        var cards = get_cards(game_state);
+        get_rank(cards, function(state) {
+          getDecision(state.rank, bet, game_state);
+        });
+      }
+      catch(e){
+        console.log(e);
+        var max_bet = Math.max.apply(null, game_state.players.map(p => p.bet));
+        bet(max_bet);
+      }
     },
 
     showdown: function(game_state) {
-
     }
   };

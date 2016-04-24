@@ -1,3 +1,4 @@
+var getCards = require('./lib/cards');
 
 module.exports = {
 

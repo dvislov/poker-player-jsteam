@@ -29,8 +29,10 @@
   }
 
 
-  function getDecision(rank, bet, state) {
-    if (rank > 0) {
+  function getDecision(rank, bet, state, cards) {
+    if(cards.length == 2) {
+      call(bet, state);
+    } else if (rank > 0) {
       raise(bet, state);
     } else {
       fold(bet, state);
@@ -45,7 +47,7 @@
       try {
         var cards = get_cards(game_state);
         get_rank(cards, function(state) {
-          getDecision(state.rank, bet, game_state);
+          getDecision(state.rank, bet, game_state, cards);
         });
       }
       catch(e){

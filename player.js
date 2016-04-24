@@ -1,6 +1,7 @@
 var request = require('request');
 var qs = require('querystring');
 var get_cards = require('./libs/cards');
+var _ = require('lodash');
 
 function call(bet, game_state) {
   var max_bet = Math.max.apply(null, game_state.players.map(p => p.bet));
@@ -47,8 +48,15 @@ function isPair(rank1, rank2) {
   return rank1 == rank2;
 }
 
+function isKicker(cards) {
+  return _.some(cards,
+    function(x) {
+      return x.rank == 'A' || x.rank == 'K';
+    }
+  );
+}
 
-var raisLimit = 1000;
+var raisLimit = 300;
 
 module.exports = {
 
@@ -59,7 +67,7 @@ module.exports = {
       var cards = get_cards(game_state);
 
       if (cards.length == 2) {
-        if (isPair(cards[0].rank, cards[1].rank) || game_state.current_buy_in < raisLimit) {
+        if (isPair(cards[0].rank, cards[1].rank) || game_state.current_buy_in < raisLimit || isKicker(cards)) {
           console.log("call");
           call(bet, game_state);
         } else {

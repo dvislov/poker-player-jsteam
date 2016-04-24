@@ -1,7 +1,9 @@
-var getCards = require('./lib/cards');
+var getCards = require('./libs/cards');
 
 const request = require('request');
 const qs = require('querystring');
+
+
 
 module.exports = {
 

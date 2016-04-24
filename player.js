@@ -37,6 +37,15 @@
     //   });
     // },
 
+    getDecision: function(rank, state) {
+      var bet = 0;
+      if (rank > 0) {
+        raise(bet, state);
+      } else {
+        fold(bet, state);
+      }
+    },
+
     showdown: function(game_state) {
 
     }

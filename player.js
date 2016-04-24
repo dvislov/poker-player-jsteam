@@ -4,7 +4,7 @@ var get_cards = require('./libs/cards');
 
 function call(bet, game_state) {
   var max_bet = Math.max.apply(null, game_state.players.map(p => p.bet));
-  bet(max_bet);
+  bet(max_bet + 1);
 }
 
 function raise(bet, game_state) {

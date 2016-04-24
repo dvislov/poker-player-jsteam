@@ -58,7 +58,8 @@ function isKicker(cards) {
   );
 }
 
-var raisLimit = 50;
+var raisLimit = 20;
+var kickerLimit = 50;
 
 module.exports = {
 
@@ -69,7 +70,7 @@ module.exports = {
       var cards = get_cards(game_state);
 
       if (cards.length == 2) {
-        if (isPair(cards[0].rank, cards[1].rank) || game_state.current_buy_in < raisLimit || isKicker(cards)) {
+        if (isPair(cards[0].rank, cards[1].rank) || game_state.current_buy_in < raisLimit || (isKicker(cards)) && game_state.current_buy_in < kickerLimit) {
           console.log("call");
           call(bet, game_state);
         } else {

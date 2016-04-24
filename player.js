@@ -24,6 +24,7 @@
       if(error) {
         console.log(error);
       }
+      console.log("response", body);
       callback(body);
     });
   }

@@ -28,6 +28,7 @@ function get_rank(cards, callback) {
   });
 }
 
+
 function getDecision(rank, bet, state, cards) {
   console.log(rank, cards);
 
@@ -46,7 +47,8 @@ function isPair(rank1, rank2) {
   return rank1 == rank2;
 }
 
-var raisLimit = 300;
+
+var raisLimit = 1000;
 
 module.exports = {
 

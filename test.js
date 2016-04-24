@@ -1,3 +1,5 @@
 const t =  require('./player');
 
-t.showdown({})
+t.bet_request({
+  
+})

@@ -1,8 +1,6 @@
 var _ = require('lodash');
 
-module.exports = {
-
-  getCards: function(state) {
+module.exports = function(state) {
     var tableCards = state.community_cards;
 
     var ourCards = [];
@@ -14,5 +12,3 @@ module.exports = {
 
     return _.concat(tableCards, ourCards);
   }
-
-};

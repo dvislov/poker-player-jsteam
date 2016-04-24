@@ -3,9 +3,9 @@ var _ = require('lodash');
 module.exports = {
 
   getCards: function(state) {
-    let tableCards = state.community_cards;
+    var tableCards = state.community_cards;
 
-    let ourCards = [];
+    var ourCards = [];
     state.players.forEach(function(item) {
       if (item.hole_cards) {
         ourCards = item.hole_cards;

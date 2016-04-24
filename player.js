@@ -1,15 +1,15 @@
 
-  const request = require('request');
-  const qs = require('querystring');
-  const get_cards = require('./libs/cards');
+  var request = require('request');
+  var qs = require('querystring');
+  var get_cards = require('./libs/cards');
 
   function call(bet, game_state) {
-    const max_bet = Math.max.apply(null, game_state.players.map(p => p.bet));
+    var max_bet = Math.max.apply(null, game_state.players.map(p => p.bet));
     bet(max_bet);
   }
 
   function raise(bet, game_state) {
-    const max_bet = Math.max.apply(null, game_state.players.map(p => p.bet));
+    var max_bet = Math.max.apply(null, game_state.players.map(p => p.bet));
     bet(max_bet + 100);
   }
 
@@ -18,7 +18,7 @@
   }
 
   function get_rank(cards, callback) {
-    const encoded = qs.escape(JSON.stringify(cards));
+    var encoded = qs.escape(JSON.stringify(cards));
 
     request("http://rainman.leanpoker.org/rank?cards=" + encoded, function(error, response, body) {
       if(error) {

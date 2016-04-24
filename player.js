@@ -7,7 +7,7 @@ module.exports = {
     const min = 0;
     const max = 100;
     const result = Math.random() * (max - min) + min;
-    bet(result);
+    bet(300);
   },
 
   showdown: function(game_state) {

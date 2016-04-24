@@ -29,8 +29,26 @@ function get_rank(cards, callback) {
   });
 }
 
+var hash = {
+  "1":"1",
+  "2":"2",
+  "3":"3",
+  "4":"4",
+  "5":"5",
+  "6":"6",
+  "7":"7",
+  "8":"8",
+  "9":"9",
+  "10":"T",
+  "11":"J",
+  "12":"Q",
+  "13":"K",
+  "14":"A"
+}
+
 function isFreePair(community_cards, rank) {
-  return _.filter(community_cards, function(e){return e.rank == rank;}).length == 2;
+  console.log(community_cards, rank);
+  return _.filter(community_cards, function(e){return e.rank == hash[rank];}).length == 2;
 }
 
 
@@ -39,6 +57,7 @@ function getDecision(rank, bet, state, cards, value) {
 
   if (rank > 1) {
     raise(bet, state, 200);
+    console.log("raise");
   } else if (rank > 0 && (value == '13' || value == '14' || state.current_buy_in < 300) && !isFreePair(state.community_cards, value)) {
     raise(bet, state, 100);
     console.log("raise");

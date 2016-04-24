@@ -8,9 +8,9 @@ function call(bet, game_state) {
   bet(max_bet + 1);
 }
 
-function raise(bet, game_state) {
+function raise(bet, game_state, value) {
   var max_bet = Math.max.apply(null, game_state.players.map(p => p.bet));
-  bet(max_bet + 100);
+  bet(max_bet + value);
 }
 
 function fold(bet) {
@@ -33,8 +33,10 @@ function get_rank(cards, callback) {
 function getDecision(rank, bet, state, cards) {
   console.log(rank, cards);
 
-  if (rank > 0) {
-    raise(bet, state);
+  if (rank >= 3) {
+    raise(bet, state, 200);
+  } else if (rank > 0) {
+    raise(bet, state, 100);
     console.log("raise");
   } else {
     fold(bet, state);

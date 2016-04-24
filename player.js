@@ -33,10 +33,7 @@
   function getDecision(rank, bet, state, cards) {
     console.log(rank, cards);
 
-    if(cards.length == 2) {
-      call(bet, state);
-      console.log("call");
-    } else if (rank > 0) {
+     if (rank > 0) {
       raise(bet, state);
       console.log("raise");
     } else {
@@ -54,13 +51,16 @@
     bet_request: function(game_state, bet) {
       try {
         var cards = get_cards(game_state);
-        get_rank(cards, function(state) {
 
-          console.log(state);
-
-          var res = JSON.parse(state);
-          getDecision(res.rank, bet, game_state, cards);
-        });
+        if(cards.length == 2) {
+          call(bet, game_state);
+          console.log("call");
+        } else {
+          get_rank(cards, function(state) {
+            var res = JSON.parse(state);
+            getDecision(res.rank, bet, game_state, cards);
+          });
+        }
       }
       catch(e){
         console.log(e);

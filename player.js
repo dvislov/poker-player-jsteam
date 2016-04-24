@@ -3,7 +3,19 @@ var getCards = require('./libs/cards');
 const request = require('request');
 const qs = require('querystring');
 
+function call(bet, game_state) {
+  const max_bet = Math.max.apply(null, game_state.players.map(p => p.bet));
+  bet(max_bet);
+}
 
+function raise(bet, game_state) {
+  const max_bet = Math.max.apply(null, game_state.players.map(p => p.bet));
+  bet(max_bet + 100);
+}
+
+function fold(bet) {
+  bet(0);
+}
 
 module.exports = {
 
